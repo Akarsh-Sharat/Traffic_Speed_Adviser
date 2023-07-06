@@ -65,12 +65,12 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, { enabl
 
 function successLocation(position) {
     console.log(position);
-    setupMap([73.88676, 18.66158]);
+    setupMap([73.89251, 18.67504]);
 
 }
 
 function errorLocation() {
-    setupMap([73.88676, 18.66158]);
+    setupMap([73.89251, 18.67504]);
 }
 
 
@@ -149,7 +149,7 @@ function setupMap(center) {
         const width = marker.properties.iconSize[0];
         const height = marker.properties.iconSize[1];
         el.className = 'marker';
-        el.style.backgroundImage = `url(/static/traffic.png)`;
+        el.style.backgroundImage = `url(/static/light.png)`;
         el.style.width = `${width}px`;
         el.style.height = `${height}px`;
         el.style.backgroundRepeat = 'no-repeat';
