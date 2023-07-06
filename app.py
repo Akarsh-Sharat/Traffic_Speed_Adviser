@@ -3,7 +3,7 @@ import pandas as pd
 from flask import Flask, render_template, request
 import pyttsx3
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 engine = pyttsx3.init()
 
