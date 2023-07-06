@@ -65,12 +65,12 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, { enabl
 
 function successLocation(position) {
     console.log(position);
-    setupMap([position.coords.longitude, position.coords.latitude]);
+    setupMap([73.88676, 18.66158]);
 
 }
 
 function errorLocation() {
-    setupMap([-2.24, 53.48]);
+    setupMap([73.88676, 18.66158]);
 }
 
 
@@ -121,13 +121,16 @@ function setupMap(center) {
      .setLngLat(center)
      .addTo(map);
 
-    // // Create a DOM element for the max speed box
-    // const maxSpeedBox = document.createElement('div');
-    // maxSpeedBox.className = 'max-speed-box';
-    // maxSpeedBox.innerHTML = `Max Speed: ${calculateMaxSpeed(center)}`;
+     var zoomControl = new mapboxgl.NavigationControl();
+        map.addControl(zoomControl, 'top-right');
 
-    // // Add the max speed box to the map
-    // map.getContainer().appendChild(maxSpeedBox);
+    // Create a DOM element for the max speed box
+    const maxSpeedBox = document.createElement('div');
+    maxSpeedBox.className = 'max-speed-box';
+    maxSpeedBox.innerHTML = `Max Speed: ${calculateMaxSpeed(center)}`;
+
+    // Add the max speed box to the map
+    map.getContainer().appendChild(maxSpeedBox);
 
     // Update the max speed box position when the map moves
     map.on('move', () => {
@@ -137,6 +140,8 @@ function setupMap(center) {
     });
 
     
+
+    
     // Add markers to the map.
     for (const marker of geojson.features) {
         // Create a DOM element for each marker.
@@ -144,7 +149,7 @@ function setupMap(center) {
         const width = marker.properties.iconSize[0];
         const height = marker.properties.iconSize[1];
         el.className = 'marker';
-        el.style.backgroundImage = `url(/static/light.png)`;
+        el.style.backgroundImage = `url(/static/traffic.png)`;
         el.style.width = `${width}px`;
         el.style.height = `${height}px`;
         el.style.backgroundRepeat = 'no-repeat';
