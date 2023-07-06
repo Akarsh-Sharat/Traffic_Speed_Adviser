@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-...your-integrity-hash... " crossorigin="anonymous">
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    
+    <!-- <link rel="stylesheet" href="Traffic_Speed_Adviser\flask\static\style.css"> -->
+
+
+    <title>Traffic</title>
+
+    <style>
+        body { margin: 0; padding: 0;}
+        #map {
+            height: 100vh;
+            width: 100vw;
+        }
+        #speed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(49, 179, 40, 0.7); /* Green color with 70% opacity */
+            z-index: 9999;
+        }
+
+        .text-box {
+            text-align: right;
+            margin-right: 10px;
+            color: white;
+        }
+
+        button {
+            margin-left: 10px;
+            border-radius: 100%;
+            background-color: aliceblue;
+        }
+        .mapboxgl-ctrl-top-left {
+            margin-top: 5%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="speed-header">
+        <div class="text-box">
+            <p id="display-text">Maintain Speed:</p>
+        </div>
+        <button onclick="speakText()"><i class="fas fa-volume-up" style="font-size: 24px;"> </i></button>
+
+
+    </div>
+    
+    
+    <div id='map'></div>
+    <!-- <div id="max-speed-box"></div> -->
+
+    <script>
+        function speakText() {
+            fetch('/speak')
+                .then(response => response.text())
+                .then(result => {
+                    console.log(result);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+<script src="static\script.js"></script>
+
+</html>
