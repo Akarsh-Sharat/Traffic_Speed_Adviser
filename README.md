@@ -45,3 +45,7 @@ Contributions to this project are welcome. To contribute, follow these steps:
 
 Thank you for your interest in the Traffic_Speed_Adviser project!
 
+##Output
+
+![Contributors](static/FinalOutput.mp4)
+
