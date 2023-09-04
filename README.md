@@ -47,5 +47,6 @@ Thank you for your interest in the Traffic_Speed_Adviser project!
 
 ##Output
 
-![Contributors](static/FinalOutput.mp4)
-
+![Output Image 1](Output/1.png)
+![Output Image 2](Output/2.png)
+![Output Image 3](Output/3.png)
